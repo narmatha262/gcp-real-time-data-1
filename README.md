@@ -67,27 +67,54 @@ We capture **YouTube comments in real time**, analyze their **sentiment using NL
 ## 📂 Repository Structure
 ```text
 yt-comments-gcp/
-├── terraform/                 # Infrastructure as Code (VPC, Service Accounts, Dataflow, etc.)
-│   ├── main.tf
-│   ├── variables.tf
-│   └── outputs.tf
-├── ansible/                   # Ansible playbooks for configuration
-│   ├── install_python.yml
-│   └── setup_environment.yml
-├── jenkins/                   # Jenkins pipeline (Jenkinsfile)
-│   └── Jenkinsfile
-├── dataflow/                  # Apache Beam streaming code
-│   └── main.py
-├── composer/                  # Airflow DAGs for orchestration
-│   └── yt_sentiment_dag.py
-├── scripts/                   # Helper scripts (API calls, authentication, etc.)
-│   └── youtube_ingest.py
-├── powerbi/                   # Dashboard reference + .pbix file
-│   └── sentiment_dashboard.pbix
-├── requirements.txt
-├── dockerfile
-├── README.md
-└── .gitignore
+├───ansible
+│   ├───group_vars
+│   │   └───all.yml
+│   └───playbooks
+│   │   └───deploy_cf.yml
+│   │   └───deploy_dag.yml
+│   │   └───deploy_dataflow.yml
+│   │   └───run_pretrained_sentiment.yml
+├───app
+│   ├──config.yaml
+│   ├──main.py
+│   ├──requirements.txt
+├───commands
+│   ├──VM_initial.txt
+│   ├──tree_create.txt
+│   ├──yt-comments_procedure.docx
+├───dags
+│   ├──yt_pipeline_dag.py
+├───dataflow
+│   ├──config.yaml
+│   ├──pipeline.py
+│   ├──requirements.txt
+│   ├──setup.py
+├───infra
+│   ├───envs
+│   │   └───dev
+│   │   │   ├───main.tf
+│   │   │   ├───outputs.tf
+│   │   │   └───variables.tf
+│   └───modules
+│   │   ├───bigquery
+│   │   │   └───main.tf
+│   │   ├───composer
+│   │   │   └──main.tf
+│   │   ├───iam
+│   │   │   └──main.tf
+│   │   ├───pubsub
+│   │   │   └──main.tf
+│   |   └───storage
+│   │   │   └──main.tf
+│   └───backend.tf
+│   └───providers.tf
+├───ml
+│   └───pretrained_sentiment.py
+├───.gitignore
+├───Jenkinsfile
+└───README.md
+```
 
 ## ⚙️ Step-by-Step Implementation  
 
@@ -164,3 +191,4 @@ yt-comments-gcp/
 **Author:** *Jaya Chandra Kadiveti*  
 **LinkedIn:** [jayachandrakadiveti](https://www.linkedin.com/in/jayachandrakadiveti/)
 **Email:** [datawithjay1@gmail.com](mailto:datawithjay1@gmail.com)
+
