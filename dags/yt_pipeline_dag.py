@@ -30,7 +30,7 @@ def trigger_ingest_fn():
         print(f"✅ Triggered ingestion function successfully: {response.status_code}")
         print(response.text)
     except Exception as e:
-        print(f"❌ Failed to trigger ingestion function: {str(e)}")
+        print(f"❌ Sorryyyyyy Failed to trigger ingestion function: {str(e)}")
         raise
 
 trigger_ingest = PythonOperator(
